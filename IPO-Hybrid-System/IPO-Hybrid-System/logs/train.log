@@ -1,0 +1,53 @@
+2026-05-25 12:23:06,580  INFO  Loading dataset: final_hybrid_ipo_dataset.xlsx
+2026-05-25 12:23:07,185  INFO  Dataset shape: (389, 31)
+2026-05-25 12:23:07,187  INFO  Removed leakage columns: ['company', 'listing_date', 'lead_manager']
+2026-05-25 12:23:07,200  INFO  Training rows  : 377
+2026-05-25 12:23:07,204  INFO  Prediction rows: 12
+2026-05-25 12:23:07,204  INFO  Ongoing IPOs:
+2026-05-25 12:28:15,590  INFO  Loading dataset: final_hybrid_ipo_dataset.xlsx
+2026-05-25 12:28:15,924  INFO  Dataset shape: (389, 31)
+2026-05-25 12:28:15,940  INFO  Removed leakage columns: ['listing_date', 'lead_manager']
+2026-05-25 12:28:15,940  INFO  Training rows  : 377
+2026-05-25 12:28:15,974  INFO  Prediction rows: 12
+2026-05-25 12:28:15,974  INFO  Ongoing IPOs:
+2026-05-25 12:28:15,998  INFO  ============================================================
+2026-05-25 12:28:15,998  INFO  PART 1: Training LSTM on PAT sequence...
+2026-05-25 12:28:15,998  INFO  ============================================================
+2026-05-25 12:28:16,135  WARNING  TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-25 12:28:23,214  INFO  LSTM training complete — 29 epochs
+2026-05-25 12:28:23,721  WARNING  You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-05-25 12:28:23,784  INFO  LSTM saved to: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\models\lstm_model.h5
+2026-05-25 12:28:23,784  INFO  ============================================================
+2026-05-25 12:28:23,784  INFO  PART 2: Training XGBoost...
+2026-05-25 12:28:23,784  INFO  ============================================================
+2026-05-25 12:28:23,784  INFO  XGBoost features (29): ['year', 'company', 'issue_price', 'issue_amount', 'pat_current_year__cr', 'roe_', 'roce_', 'debtequity', 'pat_margin_', 'price_to_book_value', 'eps_pre_ipo_', 'eps_post_ipo_', 'pe_pre_ipo_x', 'pe_post_ipo_x', 'promoter_holding_pre_ipo_', 'promoter_holding_post_ipo_', 'industry_pe', 'gmp_', 'retail_demand_x', 'nii_demand_x', 'gmp_percent', 'qib_vs_retail', 'pat_yoy_growth', 'pat_2y_growth', 'log_issue_amount', 'log_pat_current_year__cr', 'log_pat_previous_year__cr', 'log_pat_2nd_previous_year__cr', 'lstm_pat_score']
+2026-05-25 12:34:58,503  INFO  Loading dataset: final_hybrid_ipo_dataset.xlsx
+2026-05-25 12:34:58,846  INFO  Dataset shape: (389, 31)
+2026-05-25 12:34:58,846  INFO  Removed leakage columns: ['listing_date', 'lead_manager']
+2026-05-25 12:34:58,864  INFO  Training rows  : 377
+2026-05-25 12:34:58,866  INFO  Prediction rows: 12
+2026-05-25 12:34:58,866  INFO  Ongoing IPOs:
+2026-05-25 12:34:59,012  INFO  ============================================================
+2026-05-25 12:34:59,012  INFO  PART 1: Training LSTM on PAT sequence...
+2026-05-25 12:34:59,013  INFO  ============================================================
+2026-05-25 12:34:59,148  WARNING  TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-25 12:35:05,213  INFO  LSTM training complete — 24 epochs
+2026-05-25 12:35:05,746  WARNING  You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2026-05-25 12:35:05,814  INFO  LSTM saved to: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\models\lstm_model.h5
+2026-05-25 12:35:05,814  INFO  ============================================================
+2026-05-25 12:35:05,814  INFO  PART 2: Training XGBoost...
+2026-05-25 12:35:05,814  INFO  ============================================================
+2026-05-25 12:35:05,814  INFO  XGBoost features (28): ['year', 'issue_price', 'issue_amount', 'pat_current_year__cr', 'roe_', 'roce_', 'debtequity', 'pat_margin_', 'price_to_book_value', 'eps_pre_ipo_', 'eps_post_ipo_', 'pe_pre_ipo_x', 'pe_post_ipo_x', 'promoter_holding_pre_ipo_', 'promoter_holding_post_ipo_', 'industry_pe', 'gmp_', 'retail_demand_x', 'nii_demand_x', 'gmp_percent', 'qib_vs_retail', 'pat_yoy_growth', 'pat_2y_growth', 'log_issue_amount', 'log_pat_current_year__cr', 'log_pat_previous_year__cr', 'log_pat_2nd_previous_year__cr', 'lstm_pat_score']
+2026-05-25 12:35:06,094  INFO    MAE              : 13.03%
+2026-05-25 12:35:06,094  INFO    RMSE             : 19.33%
+2026-05-25 12:35:06,094  INFO    R² (Validation)  : 0.3806
+2026-05-25 12:35:06,096  INFO    R² (Train)       : 0.3819
+2026-05-25 12:35:06,096  INFO    Overfit Gap      : 0.0014
+2026-05-25 12:35:06,096  INFO    Direction Acc    : 81.6%
+2026-05-25 12:35:06,096  INFO    Category Acc     : 47.4%
+2026-05-25 12:35:06,096  INFO    Tolerance Acc    : 48.7%
+2026-05-25 12:35:06,106  INFO  XGBoost saved to: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\models\xgb_model.pkl
+2026-05-25 12:35:07,216  INFO  Saved: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\outputs\fig1_performance_dashboard.png
+2026-05-25 12:35:08,024  INFO  Saved: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\outputs\fig2_feature_importance.png
+2026-05-25 12:35:08,619  INFO  Saved: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\outputs\fig3_predictions.png
+2026-05-25 12:35:09,479  INFO  Saved: C:\Users\Lenovo\OneDrive\Documents\IPO-Hybrid-System\outputs\fig4_accuracy_dashboard.png
